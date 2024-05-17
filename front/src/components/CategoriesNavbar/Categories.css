@@ -1,0 +1,15 @@
+.image-category {
+  width: 150px;
+  height: 150px;
+}
+
+@media (max-width: 776px) {
+  .image-category {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.categories-navbar {
+  width: 100%;
+}

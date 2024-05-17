@@ -1,0 +1,33 @@
+.product-item .card-footer-btn {
+  font-size: 0.9rem !important ;
+}
+@media (max-width: 1024px) {
+  .product-item .card-footer-btn {
+    font-size: 0.8rem !important ;
+  }
+}
+.previewImg {
+  max-width: 80%;
+  max-height: 400px;
+}
+.image-card {
+  height: 200px;
+}
+.bi-heart {
+  cursor: pointer;
+}
+.username {
+  font-size: 11pt;
+}
+.description {
+  font-size: 9pt !important;
+}
+
+.calender-btn {
+  background-color: #216ba1 !important;
+}
+
+.datePickerHint {
+  font-size: 0.75rem;
+  color: #56a804;
+}

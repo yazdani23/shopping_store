@@ -1,0 +1,12 @@
+.social-media {
+    list-style: none;
+}
+.social-media li a{
+    display: inline-block;
+  transform: scale(1);
+    transition: all 0.5s;
+}
+.social-media li a:hover{
+    color: rgb(255, 119, 0)!important;
+    transform: scale(1.1);
+}

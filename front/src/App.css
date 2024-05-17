@@ -1,0 +1,44 @@
+#root {
+  height: 100vh;
+  width: 100%;
+}
+.navbar-header {
+  padding: 12px 20px !important;
+}
+.navbar-header .nav-link {
+  font-size: 0.9rem !important;
+  margin-right: 1rem;
+}
+.navbar-header .btn {
+  font-size: 0.9rem !important;
+}
+.logo-header {
+  width: 80px;
+}
+main {
+  min-height: 500px;
+}
+.search-form {
+  width: 30%;
+}
+.search-form input {
+  padding-right: 20px;
+}
+
+.bi-search {
+  right: 20px;
+  top: 10px;
+  color: rgb(108, 108, 108);
+}
+
+/* Chrome - für hide input Arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* für Phone eingabefeld, Eingabenummernpfeile ausblenden (hide input number arrows) */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

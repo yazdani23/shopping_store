@@ -1,0 +1,9 @@
+.hero {
+  background-image: linear-gradient(#00000031, #0000002f),
+    url("../../assets/images/products/5.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 54vh;
+}
