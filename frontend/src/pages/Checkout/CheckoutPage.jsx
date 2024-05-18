@@ -40,7 +40,7 @@ const CheckoutPage = () => {
       })
         .then((res) => {
           showSuccessMessage("Order registered Successful.");
-          navigate("/peyment");
+          navigate("/confirmOrder");
           dispatch(checkoutCart());
         })
         .catch((error) => showErrorMessage("Order registered failed."));
@@ -54,7 +54,7 @@ const CheckoutPage = () => {
         {cartItems.length === 0 ? (
           <p>Your cart is empty.</p>
         ) : (
-          <Row>
+          <Row className="mb-5">
             <Col md={8} lg={9}>
               <div className="shadow p-3">
                 {cartItems.map((item, index) => (

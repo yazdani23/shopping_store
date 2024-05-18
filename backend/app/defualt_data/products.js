@@ -172,12 +172,12 @@ const createDefaultProducts = async () => {
     const outdoor = await Category.findOne({ name: "Outdoor" });
     const office = await Category.findOne({ name: "Office" });
 
-    ProductsInfo[0].category = bedroom.id;
-    ProductsInfo[1].category = bedroom.id;
+    ProductsInfo[0].category = diningRoom.id;
+    ProductsInfo[1].category = diningRoom.id;
     ProductsInfo[2].category = livingRoom.id;
     ProductsInfo[3].category = livingRoom.id;
-    ProductsInfo[4].category = diningRoom.id;
-    ProductsInfo[5].category = diningRoom.id;
+    ProductsInfo[4].category = bedroom.id;
+    ProductsInfo[5].category = bedroom.id;
     ProductsInfo[6].category = office.id;
     ProductsInfo[7].category = office.id;
     ProductsInfo[8].category = outdoor.id;

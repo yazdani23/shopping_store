@@ -21,16 +21,17 @@ import CategoryPage from "../pages/CategoryPage/CategoryPage";
 import CategoriesListPage from "../pages/AdminPanel/CategoriesListPage";
 import CreateEditCategory from "../pages/AdminPanel/CreateEditCategoryPage";
 import OrdersListPage from "../pages/UserPanel/OrdersListPage";
-import PaymentPage from "../pages/Payment/PaymentPage";
 import OrderDetailsPage from "../pages/Order/OrderDetailsPage";
-// alle Routes in eine Funktion
+import ConfirmOrderPage from "../pages/ConfirmOrder/ConfirmOrder";
+
+
 function RoutesMap() {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/home" />} />
       <Route path="/home" element={<HomePage />} />
       <Route path="/checkout" element={<CheckoutPage />} />
-      <Route path="/peyment" element={<PaymentPage />} />
+      <Route path="/confirmOrder" element={<ConfirmOrderPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/forgetPassword" element={<ForgetPasswordPage />} />
       <Route path="/resetPassword" element={<ResetPasswordPage />} />

@@ -20,7 +20,7 @@ const FavProduct = ({ id }) => {
 
   const toggleFavorite = () => {
     if (!isLogin) {
-      showErrorMessage("You should be login first");
+      showErrorMessage("You should log in first.");
     } else {
       if (favorite)
         UserService.deleteProductFromFavoriteList(id)

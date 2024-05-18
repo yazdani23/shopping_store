@@ -5,7 +5,7 @@ const createAdmin = async () => {
   const AdminInfo = {
     firstName: "Amir",
     lastName: "Akhoundi",
-    email: "Admin@gmail.com",
+    email: "admin@gmail.com",
     password: "Admin123*",
     phone: "+358-33-568-110",
     role: "admin",

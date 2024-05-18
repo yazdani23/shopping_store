@@ -1,6 +1,6 @@
 const Product = require("../models/Product");
 const User = require("../models/User");
-const { productValidate } = require("../validator/product.validate");
+const { productValidate } = require("../validators/product.validate");
 
 /*
 controller of route /products/:id

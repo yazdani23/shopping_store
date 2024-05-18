@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Order = require("../models/Order");
-const orderValidate = require("../validator/order.validate");
+const orderValidate = require("../validators/order.validate");
 
 // Get all orders
 exports.getAllOrders = async (req, res) => {

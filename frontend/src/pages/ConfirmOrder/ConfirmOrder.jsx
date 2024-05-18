@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../../components/layout/Layout'
 import { Link } from 'react-router-dom';
 
-const PaymentPage = () => {
+const ConfirmOrderPage = () => {
   return (
     <Layout>
       <div className="container mt-5 text-center">
@@ -18,6 +18,6 @@ const PaymentPage = () => {
       </div>
     </Layout>
   );
-}
+};
 
-export default PaymentPage
+export default ConfirmOrderPage;

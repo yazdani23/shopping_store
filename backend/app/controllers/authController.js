@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken"); // JSON web Token (jwt) für Token verwalte
 const {
   signupValidate,
   resetPasswordValidate,
-} = require("../validator/auth.validate"); // validation
+} = require("../validators/auth.validate"); // validation
 const bcrypt = require("bcrypt"); // Passwort Hash
 const { sendForgetPasswordLink } = require("./emailController"); // Hanldefunction for send Email for forgetpasswort
 
@@ -14,66 +14,72 @@ const { sendForgetPasswordLink } = require("./emailController"); // Hanldefuncti
  */
 const signup = async (req, res) => {
   try {
-    const { email } = req.body;
+    let { email } = req.body;
+    email = email.toLowerCase(); // Convert email to lowercase
 
     // Validate user request body
     const { error } = signupValidate.validate(req.body);
     if (error) return res.status(400).send({ message: error.message });
 
-    // prevent signup user with repeative email
+    // Prevent signup with a duplicate email
     let result = await User.findOne({ email: email });
     if (result) {
-      res.status(400).json({
+      return res.status(400).json({
         error: true,
-        message: "The email already exist!",
+        message: "The email already exists!",
       });
     } else {
-      // hash password
+      // Hash the password
       const hashedPass = await bcrypt.hash(req.body.password, 10);
 
-      // create user with body and hashed password
-      const user = new User({ ...req.body, password: hashedPass });
+      // Create user with body and hashed password
+      const user = new User({ ...req.body, email, password: hashedPass }); // Store email in lowercase
       await user.save();
-      res.status(201).send({
+      return res.status(201).send({
         message: "Created Account!",
         user,
       });
     }
   } catch (err) {
     console.log(err);
-    res.status(500).send({ message: "The error occurred on server" });
+    return res.status(500).send({ message: "An error occurred on the server" });
   }
 };
 
 const login = async (req, res) => {
-  // User Daten wurden von body erhalten
+  // Get user data from body
   let { email, password } = req.body;
+  email = email.toLowerCase(); // Convert email to lowercase
+
   try {
-    // in Collection "User" wird eingegebene email gesucht (findOne)
-    // check whether user with this email exist in users collection or not
+    // Check whether a user with this email exists in the users collection
     let user = await User.findOne({
       email: email,
     });
 
     if (!user) {
-      res.status(404).json({ message: "The email or password not correct!" });
+      return res
+        .status(404)
+        .json({ message: "The email or password is incorrect!" });
     } else {
-      // check password correction
+      // Check password correctness
       const isMatch = await bcrypt.compare(password, user.password);
-      if (!isMatch)
+      if (!isMatch) {
         return res
           .status(404)
-          .json({ message: "The email or password not correct!" });
+          .json({ message: "The email or password is incorrect!" });
+      }
 
-      // create token with payload userId expired at 30 days
+      // Create token with payload userId, expires in 30 days
       const payload = { user: { id: user.id } };
-      const secretKey=process.env.SECRET_KEY || "Amir#$!@78SDSklqp+";
+      const secretKey = process.env.SECRET_KEY || "Amir#$!@78SDSklqp+";
       const token = jwt.sign(payload, secretKey, {
         expiresIn: "30d",
       });
-      res.status(200).json({
+
+      return res.status(200).json({
         token,
-        // response to User:
+        // Response to user:
         userInfo: {
           fullName: user.firstName + " " + user.lastName,
           phone: user.phone,
@@ -86,11 +92,12 @@ const login = async (req, res) => {
     }
   } catch (e) {
     console.error(e);
-    res.status(500).json({
+    return res.status(500).json({
       message: "Server Error",
     });
   }
 };
+
 
 function createRandomVerifyToken(length) {
   let result = "";

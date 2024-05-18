@@ -1,5 +1,5 @@
 const Category = require("../models/Category.js");
-const { categoryValidate } = require("../validator/category.validate");
+const { categoryValidate } = require("../validators/category.validate");
 
 const getAllCategories = async (req, res) => {
   const categories = await Category.find({});

@@ -27,7 +27,19 @@ function UserPanelPage() {
 
   return (
     <UserLayout>
-    <h3>Welcome</h3>
+      <div className="container mt-5 text-center">
+        <div className="w-75 mx-auto alert alert-success" role="alert">
+          <h4 className="alert-heading">Welcome</h4>
+          <p>Your Panel</p>
+          <hr />
+          <h6 className="mb-0">
+            <p className="mb-2">
+              You can manage your dashboard and access your user information
+            </p>
+            through the options in the sidebar.
+          </h6>
+        </div>
+      </div>
     </UserLayout>
   );
 }
